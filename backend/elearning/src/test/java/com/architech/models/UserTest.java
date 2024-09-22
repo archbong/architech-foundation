@@ -21,8 +21,8 @@ class UserTest {
 
     @Test
     void testSetAndGetId(){
-        user.setId(1);
-        assertEquals(1, user.getId());
+        user.setId(1L);
+        assertEquals(1L, user.getId());
     }
 
     @Test
@@ -62,7 +62,7 @@ class UserTest {
 
     @Test
     void testToString() {
-        user.setId(1);
+        user.setId(1L);
         user.setFullName("John Doe");
         user.setPassword("password123");
         user.setEmail("john.doe@example.com");

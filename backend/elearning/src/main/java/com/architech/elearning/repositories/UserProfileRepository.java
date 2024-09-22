@@ -9,10 +9,10 @@ import com.architech.elearning.models.UserProfile;
 import java.util.Optional;
 
 @Repository
-public interface UserProfileRepository extends JpaRepository<UserProfile, Integer> {
+public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
     Optional<UserProfile> findByEmail(String email);
 
     @Override
     @NonNull
-    Optional<UserProfile> findById(@NonNull Integer id);
+    Optional<UserProfile> findById(@NonNull Long id);
 }

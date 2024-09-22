@@ -27,9 +27,9 @@ import java.util.List;
 public class User implements UserDetails {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     @NotBlank(message = "Full name is required")
@@ -59,7 +59,7 @@ public class User implements UserDetails {
     public User() {}
 
     // Constructor with id parameter
-    public User(Integer id) {
+    public User(Long id) {
         this.id = id;
     }
 
@@ -98,11 +98,11 @@ public class User implements UserDetails {
         return true;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public User setId(Integer id) {
+    public User setId(Long id) {
         this.id = id;
         return this;
     }

@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 public class Course {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
 
     @Setter @Getter
@@ -85,7 +85,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User {" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

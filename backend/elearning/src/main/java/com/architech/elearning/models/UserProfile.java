@@ -17,8 +17,8 @@ import java.util.Date;
 public class UserProfile implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private Long id;
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -33,7 +33,7 @@ public class UserProfile implements Serializable {
 
     public UserProfile() {}
 
-    public UserProfile(Integer id, User user, String profilePicture, Date lastLogin) {
+    public UserProfile(Long id, User user, String profilePicture, Date lastLogin) {
         this.id = id;
         this.user = user;
         this.profilePicture = profilePicture;

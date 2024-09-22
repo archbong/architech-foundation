@@ -3,7 +3,6 @@ package com.architech.elearning.controllers;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,14 +29,14 @@ public class UserProfileController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserProfile> getUserProfile(@PathVariable Integer id) {
+    public ResponseEntity<UserProfile> getUserProfile(@PathVariable Long id) {
         Optional<UserProfile> userProfile = userProfileRepository.findById(id);
         return userProfile.map(ResponseEntity::ok)
             .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<UserProfile> updateUserProfile(@PathVariable Integer id, @RequestBody UserProfile userProfile) {
+    public ResponseEntity<UserProfile> updateUserProfile(@PathVariable Long id, @RequestBody UserProfile userProfile) {
         if (!userProfileRepository.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -48,7 +47,7 @@ public class UserProfileController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUserProfile(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteUserProfile(@PathVariable Long id) {
         if (!userProfileRepository.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
